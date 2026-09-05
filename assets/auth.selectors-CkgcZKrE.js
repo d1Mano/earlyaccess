@@ -1,0 +1,1 @@
+import{n as e}from"./supabase-CXJNiAGl.js";var t=()=>e(e=>e.status);export{t};
