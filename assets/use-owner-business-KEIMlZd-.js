@@ -1,0 +1,1 @@
+import{i as e,l as t}from"./react-Ch6-oAsy.js";import{r as n}from"./cn-1ZpPA0SZ.js";import{Rt as r,gt as i,r as a}from"./use-owner-data-BZlp5u0S.js";var o=t(e(),1);function s(e){let t=r(e=>e.setBusinessId),s=n({queryKey:a.business(e??``),queryFn:()=>i(e),enabled:!!e,staleTime:1/0});return(0,o.useEffect)(()=>{s.data&&t(s.data.id)},[s.data,t]),s}export{s as t};

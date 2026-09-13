@@ -1,0 +1,1 @@
+var e=`/earlyaccess/d1mano-logo.svg`,t=`/earlyaccess/d1mano-cover.svg`;export{e as n,t};
