@@ -1,0 +1,1 @@
+import{c as e,r as t}from"./jsx-runtime-Cbc8irTA.js";import{n}from"./useInfiniteQuery-BQ2LViE8.js";import{Bt as r,i,vt as a}from"./OwnerButton-DfNFEusE.js";var o=e(t(),1);function s(){let e=r(e=>e.setBusiness),t=n({queryKey:i.business(`me`),queryFn:()=>a(),staleTime:1/0});return(0,o.useEffect)(()=>{t.data&&e(t.data.id,t.data.slug)},[t.data,e]),t}export{s as t};
