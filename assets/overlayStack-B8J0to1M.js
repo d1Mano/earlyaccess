@@ -1,0 +1,1 @@
+var e=0,t=new Set,n=0,r=new Set,i=()=>{n++,r.forEach(e=>e())},a=()=>Math.max(-1,...t),o=()=>e++,s=e=>{t.add(e),i()},c=e=>{t.delete(e),i()},l=e=>(r.add(e),()=>{r.delete(e)});export{c as a,o as i,i as n,s as o,a as r,l as s,t};

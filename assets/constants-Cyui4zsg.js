@@ -1,0 +1,1 @@
+var e=`Completa esta información`,t={product_name:{label:`Nombre del producto`},product_description:{label:`Descripción del producto`},product_price:{label:`Precio`},provider_info:{label:`Proveedor`},commission:{label:`Comisión`},notes:{label:`Notas`}},n=`Vale de compra`,r=`✅ Completado por el cliente`,i=`(necesario, por rellenar)`;export{t as a,n as i,e as n,i as r,r as t};
