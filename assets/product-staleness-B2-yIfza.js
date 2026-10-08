@@ -1,0 +1,1 @@
+function e(e,t){return t&&t!==e?t:e||null}function t(t,n){let r=e(t,n);if(!r)return null;let i=Date.now()-new Date(r).getTime();return i<=0?0:Math.floor(i/36e5)}function n(e,n,r){let i=t(e,n);return i!==null&&i>=r}function r(e){return e>=24?`${Math.floor(e/24)}d`:`${e}h`}export{n,t as r,r as t};
