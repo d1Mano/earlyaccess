@@ -1,0 +1,1 @@
+var e=`/earlyaccess/assets/texture-sP4LmBlD.webp`;export{e as t};

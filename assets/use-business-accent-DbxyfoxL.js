@@ -1,0 +1,1 @@
+import{t as e}from"./useQuery-Ds0elHyi.js";import{g as t,x as n}from"./BusinessTheme-DFkxevBF.js";function r(r){let{data:i}=e({queryKey:[`business-accent`,r],queryFn:async()=>(await n(`cat_get_business_by_slug`,{p_slug:r}))?.accentColor??null,enabled:!!r,staleTime:1e3*60*10,retry:1,persister:t});return i??null}export{r as t};
