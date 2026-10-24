@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://d1mano.github.io/earlyaccess/sitemap.xml

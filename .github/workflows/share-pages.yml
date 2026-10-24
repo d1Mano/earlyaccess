@@ -1,0 +1,51 @@
+# Vistas previas de links — regeneración periódica.
+#
+# Este archivo se publica en el repo del SITIO (d1Mano/earlyaccess, rama
+# gh-pages) como .github/workflows/share-pages.yml: lo copia el deploy
+# (scripts/prerender-og.mjs) junto con tools/share-pages.mjs y
+# tools/share-config.json. Ahí corre solo, con el token del propio repo:
+# no necesita secretos.
+#
+# Cada 15 min vuelve a generar s/** desde la base. Solo hace commit si algo
+# cambió (producto nuevo, precio, foto, venta flash que empieza o termina).
+name: Vistas previas de links
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: share-pages
+  cancel-in-progress: false
+
+jobs:
+  regenerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generar páginas de vista previa
+        run: node tools/share-pages.mjs --out . --config tools/share-config.json
+      - name: Publicar si hubo cambios
+        run: |
+          # El deploy sale de un disco que marca todo como ejecutable: sin esto,
+          # la primera corrida tras cada deploy commitea 200 cambios de permisos.
+          git config core.fileMode false
+          git add -A s
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+            exit 0
+          fi
+          git config user.name "d1Mano"
+          git config user.email "deploy@d1mano.dev"
+          git commit -m "share: regenerar vistas previas"
+          # Si un deploy reescribió la rama mientras tanto, este push falla y
+          # no pasa nada: el deploy ya trae las páginas recién generadas.
+          git push || echo "La rama cambió (deploy en curso); se reintenta en la próxima corrida."
